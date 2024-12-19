@@ -13,6 +13,39 @@ class WebAgent:
             instructions=["Always include sources"],
             show_tool_calls=True,
             markdown=True,
+            add_chat_history_to_messages= True,
+            num_history_responses= 3
+        )
+
+    def ask(self, prompt: str):
+        streaming_response = self.agent.run(
+            prompt,
+            stream=True
+        )
+
+        for text in streaming_response:
+            yield text.content
+
+
+class RetrievalAgent:
+    def __init__(self, knowledge_base, search_knowledge=True):
+        self.agent = Agent(
+            knowledge_base=knowledge_base,
+            search_knowledge=search_knowledge,
+            add_chat_history_to_messages= True,
+            num_history_responses= 3,
+            memory=AgentMemory(
+                db=PgMemoryDb(
+                    table_name="retrieval_agent_memory",
+                    db_url=DB_URL
+                ),
+                create_user_memories=True,
+                create_session_summary=True
+            ),
+            storage=PgAgentStorage(
+                table_name='personalized_agent_sessions',
+                db_url=DB_URL
+            )
         )
 
     def ask(self, prompt: str):
