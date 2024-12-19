@@ -1,5 +1,6 @@
 import os
 from textwrap import dedent
+from datetime import datetime
 from dotenv import load_dotenv
 from phi.agent import Agent, AgentMemory
 from phi.tools.duckduckgo import DuckDuckGo
@@ -77,7 +78,7 @@ class PresentationAgent:
             \beta = \alpha + \beta
             $$
             """),
-            save_response_to_file="presentations/presentation.md",
+            save_response_to_file=f"presentations/presentation-{datetime.now}.md",
         )
 
 
