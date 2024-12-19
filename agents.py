@@ -56,3 +56,9 @@ class RetrievalAgent:
 
         for text in streaming_response:
             yield text.content
+
+    def get_memories(self):
+        return self.agent.memory.memories
+    
+    def get_memory_summary(self):
+        return self.agent.memory.summary
