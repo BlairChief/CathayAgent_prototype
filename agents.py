@@ -78,7 +78,7 @@ class PresentationAgent:
             \beta = \alpha + \beta
             $$
             """),
-            save_response_to_file=f"presentations/presentation-{datetime.now}.md",
+            save_response_to_file=f"presentations/presentation-{datetime.now().strftime("%Y-%m-%d_%H:%M:%S")}.md",
         )
 
 
