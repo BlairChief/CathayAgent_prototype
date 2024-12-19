@@ -1,7 +1,10 @@
-from phi.agent import Agent
 from dotenv import load_dotenv
 from phi.model.openai import OpenAIChat
+from phi.agent import Agent, AgentMemory
 from phi.tools.duckduckgo import DuckDuckGo
+from phi.memory.db.postgres import PgMemoryDb
+from phi.storage.agent.postgres import PgAgentStorage
+from shared import DB_URL
 
 load_dotenv()
 
