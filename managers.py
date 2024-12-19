@@ -1,14 +1,16 @@
-
-from shared import DB_URL
+import os
+from dotenv import load_dotenv
 from phi.vectordb.pgvector import PgVector
 from phi.knowledge.pdf import PDFKnowledgeBase, PDFReader
+
+load_dotenv()
 
 class KnowledgeBaseManager:
     def __init__(
         self, 
         source_path="data/pdfs", 
         table_name="pdfs", 
-        db_url=DB_URL, 
+        db_url=os.getenv('DB_URL'), 
         chunk=True
     ):
         self.source_path = source_path

@@ -1,6 +1,6 @@
 import os
+from textwrap import dedent
 from dotenv import load_dotenv
-from phi.model.openai import OpenAIChat
 from phi.agent import Agent, AgentMemory
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.memory.db.postgres import PgMemoryDb
@@ -11,13 +11,9 @@ load_dotenv()
 class WebAgent:
     def __init__(self):
         self.agent = Agent(
-            model=OpenAIChat(id="gpt-4o", api_key=os.getenv('OPENAI_API_KEY')),
+            name="Web Searcher",
+            role="Get seach queries on a topic",
             tools=[DuckDuckGo()],
-            instructions=["Always include sources"],
-            show_tool_calls=True,
-            markdown=True,
-            add_chat_history_to_messages= True,
-            num_history_responses= 3
         )
 
     def ask(self, prompt: str):
@@ -30,9 +26,66 @@ class WebAgent:
             yield text.content
 
 
+class PresentationAgent:
+    def __init__(self):
+        self.agent = Agent(
+            name="Presentation Maker",
+            role="Makes easy-to-understand and engaging presentation slides.",
+            instructions=[
+                "You are going to make a presentation using Marp (Visual Studio Code) in Markdown.",
+                "You are going to use the sources you got from the internet and the sources we have in the database",
+                "When making the presentation, please include the source, as well as the references.",
+                "Include mathematical equations and Python code if possible.",
+                "When creating the presentation, you are going to follow the format provided.",
+            ],
+            expected_output=dedent("""
+            ---
+            marp: true
+            title: Marp
+            paginate: true
+            theme: uncover
+            ---
+
+            # My Presentation
+
+            ---
+
+            ## Slides 1
+
+            Something interesting happens in the first day
+
+            ---
+
+            ## Slides 2
+
+            ![w:300](https://marp.app/assets/marp-logo.svg)
+
+            ---
+
+            ## Slides 3
+
+            ```python
+            def foo(self):
+                pass
+            ```
+                     
+            ---
+
+            ## Slides 4
+
+            $$
+            \beta = \alpha + \beta
+            $$
+            """),
+            save_response_to_file="presentations/presentation.md",
+        )
+
+
 class RetrievalAgent:
     def __init__(self, knowledge_base, search_knowledge=True):
         self.agent = Agent(
+            name="Retrieval Agent",
+            role="Retrieves related sources based on a given topic",
             knowledge_base=knowledge_base,
             search_knowledge=search_knowledge,
             add_chat_history_to_messages= True,
@@ -48,7 +101,7 @@ class RetrievalAgent:
             storage=PgAgentStorage(
                 table_name='personalized_agent_sessions',
                 db_url=os.getenv('DB_URL')
-            )
+            ),
         )
 
     def ask(self, prompt: str):
