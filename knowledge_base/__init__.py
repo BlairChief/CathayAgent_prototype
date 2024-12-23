@@ -1,1 +1,1 @@
-from pdf import PdfKnowledgeBase
+from .pdf import PdfKnowledgeBase

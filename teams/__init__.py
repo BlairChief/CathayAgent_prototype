@@ -1,1 +1,1 @@
-from presentation_team import PresentationTeam
+from .presentation_team import PresentationTeam
