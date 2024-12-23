@@ -1,17 +1,15 @@
 import streamlit as st
 from textwrap import dedent
-from agents import WebAgent, PresentationAgent, RetrievalAgent
-from knowledge_base import PdfKnowledgeBase
 from teams import PresentationTeam
+from knowledge_base import PdfKnowledgeBase
+from agents import WebAgent, PresentationAgent, RetrievalAgent
 
 web_agent = WebAgent()
 
-knowledge_base = PdfKnowledgeBase()
-knowledge_base.initialize_knowledge_base()
-
-# knowledge_base.pdf_knowledge_base.load(recreate=True, upsert=True)
-
-retrieval_agent = RetrievalAgent(knowledge_base.pdf_knowledge_base)
+db = PdfKnowledgeBase()
+db.initialize_knowledge_base()
+# db.pdf_knowledge_base.load(recreate=True, upsert=True)
+retrieval_agent = RetrievalAgent(db.pdf_knowledge_base)
 
 presentation_agent = PresentationAgent(
     instructions=[
