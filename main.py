@@ -65,7 +65,7 @@ presentation_agent = PresentationAgent(
 )
 
 presentation_team = PresentationTeam(
-    agents=[web_agent, retrieval_agent, presentation_agent],
+    team=[web_agent.agent, retrieval_agent.agent, presentation_agent.agent],
     instructions=[
         "First, you go on the internet, search for the query keywords, and gather the query results."
         "Then, you would go on the database and look for relevant sources.",
