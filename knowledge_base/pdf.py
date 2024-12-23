@@ -5,7 +5,7 @@ from phi.knowledge.pdf import PDFKnowledgeBase, PDFReader
 
 load_dotenv()
 
-class KnowledgeBaseManager:
+class PdfKnowledgeBase:
     def __init__(
         self, 
         source_path="data/pdfs", 
