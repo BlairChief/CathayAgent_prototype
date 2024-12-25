@@ -1,8 +1,8 @@
 import streamlit as st
 from textwrap import dedent
-from teams import PresentationTeam
-from knowledge_base import PdfKnowledgeBase
-from agents import WebAgent, PresentationAgent, RetrievalAgent
+from cathay.teams import PresentationTeam
+from cathay.knowledge_base import PdfKnowledgeBase
+from cathay.agents import WebAgent, PresentationAgent, RetrievalAgent
 
 web_agent = WebAgent()
 
