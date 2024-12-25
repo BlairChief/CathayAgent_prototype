@@ -4,9 +4,9 @@ from textwrap import dedent
 from datetime import datetime
 
 class PresentationAgent:
-    def __init__(self, instructions: List[str], expected_out: str, save_location: str):
+    def __init__(self, instructions: List[str], expected_output: str, save_location: str):
         self.instructions = instructions
-        self.expected_output = expected_out
+        self.expected_output = expected_output
         
         self.agent = Agent(
             name="Presentation Maker",

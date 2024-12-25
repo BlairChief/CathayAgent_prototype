@@ -1,6 +1,6 @@
 from math import log
 from json import dumps
-from typing import List, Union
+from typing import Union
 from phi.tools import Toolkit
 from phi.utils.log import logger
 

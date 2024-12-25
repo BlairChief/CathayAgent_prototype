@@ -1,12 +1,12 @@
 from phi.agent import Agent
-from phi.tools.duckduckgo import DuckDuckGo
+from cathay.tools import Searxng
 
 class WebAgent:
     def __init__(self):
         self.agent = Agent(
             name="Web Searcher",
             role="Get seach queries on a topic",
-            tools=[DuckDuckGo()],
+            tools=[Searxng()],
         )
 
     def ask(self, prompt: str):
