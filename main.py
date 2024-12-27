@@ -34,7 +34,9 @@ presentation_agent = PresentationAgent(
     ## Slides 1
 
     Something interesting happens in the first day
-
+                           
+    **Source**: [Wikipedia](https://wikipedia.com)
+                           
     ---
 
     ## Slides 2
@@ -57,6 +59,13 @@ presentation_agent = PresentationAgent(
     $$
     \beta = \alpha + \beta
     $$
+                           
+    ---
+                           
+    ## References
+                           
+    1. [Link 1](https://link1.com)
+    2. [Link 2](https://link2.com)
     """
     ),
     save_location="data/presentations"
