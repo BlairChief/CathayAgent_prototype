@@ -2,9 +2,10 @@ import streamlit as st
 from textwrap import dedent
 from teams import PresentationTeam
 from knowledge_base import PdfKnowledgeBase
-from agents import WebAgent, PresentationAgent, RetrievalAgent
+from agents import WebAgent, PresentationAgent, RetrievalAgent, YfinanceAgent
 
 web_agent = WebAgent()
+yfinance_agent=YfinanceAgent()
 
 db = PdfKnowledgeBase()
 db.initialize_knowledge_base()
@@ -19,7 +20,7 @@ presentation_agent = PresentationAgent(
         "Include mathematical equations and Python code if possible.",
         "When creating the presentation, you are going to follow the format provided.",
     ],
-    expected_output=dedent("""
+    expected_out=dedent("""
     ---
     marp: true
     title: Marp

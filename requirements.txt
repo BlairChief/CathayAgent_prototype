@@ -187,7 +187,7 @@ jedi==0.19.2 \
 jinja2==3.1.4 \
     --hash=sha256:4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369 \
     --hash=sha256:bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d
-jiter==0.8.2 \
+#jiter==0.8.2 \
     --hash=sha256:cd73d3e740666d0e639f678adb176fad25c1bcbdae88d8d7b857e1783bb4212d \
     --hash=sha256:e6ec2be506e7d6f9527dae9ff4b7f54e68ea44a0ef6b098256ddf895218a2f8f \
     --hash=sha256:76e324da7b5da060287c54f2fabd3db5f76468006c811831f051942bf68c9d44 \

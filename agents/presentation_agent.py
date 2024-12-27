@@ -13,5 +13,5 @@ class PresentationAgent:
             role="Makes easy-to-understand and engaging presentation slides for technical and non-technical audiences.",
             instructions=self.instructions,
             expected_output=self.expected_output,
-            save_response_to_file=f"{save_location}/presentation-{datetime.now().strftime("%Y-%m-%d_%H:%M:%S")}.md",
+            save_response_to_file=f"{save_location}/presentation-{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.md"
         )

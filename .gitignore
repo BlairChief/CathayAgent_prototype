@@ -3,4 +3,6 @@ uv.lock
 pyproject.toml
 .python-version
 .venv
+.cathayenv
+cathayenv
 __pycache__
