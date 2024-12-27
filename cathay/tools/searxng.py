@@ -13,18 +13,29 @@ class Searxng(Toolkit):
     def search(self, q: str, format: str):
         params = {
             'q': q,
-            'format': format,
+            'format': 'json',
             'language': self.language
         }
         self.response = re.get(self.searxng_url, params=params)
         
         if self.response.status_code == 200:
+            first_ten_results = self.response.json()['results'][:10]
+
+            cleaned_results = list()
+            for result in first_ten_results:
+                cleaned_results.append({
+                    'url': result['url'],
+                    'score': result['score'],
+                    'content': result['content'],
+                })
+
             logger.info(
-                f"Search returns:\n{dumps(self.response.json(), indent=2)}"
+                f"Search returns:\n{cleaned_results}"
             )
+            
             return dumps({
                 "operation": "searxng",
-                "result": self.response.json()
+                "result": cleaned_results
             })
         
         logger.info(
