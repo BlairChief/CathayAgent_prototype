@@ -15,10 +15,11 @@ class EmailAgent:
                 "You are responsible for sending emails.",
                 "When you receive a message:",
                 "1. Look for email addresses in the message",
-                "2. Make the format of email addresses correct(like 'at' to '@')",
+                "2. Make the format of email addresses correct(like 'at' to '@','dot' to '.')",
                 "3. If you find an email, use it as the receiver_email",
-                "4. If no email address provided, leave receiver_email as None",
-                "5. When calling email_user, include the found email in receiver_email parameter",
+                "4. When calling email_user, include the found email in receiver_email parameter",
+                "5. If emailing is required, maintain a gentle and polite tone, and follow proper formatting guidelines."
+                "6. Please the format of the email",
                 "Use zh_tw as the language for all communications."
             ],
             tools=[

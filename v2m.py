@@ -28,12 +28,10 @@ def initv2m():
     "2. Determine which Agent(s) the user needs.",
     "3. Identify the correct email address(es) for sending results.",
     "4. Use the chosen Agent(s) to complete the request.",
-    "5. If emailing is required, maintain a gentle and polite tone, and follow proper formatting guidelines.",
     "6. After sending the email, provide a clear confirmation that it has been delivered.",
-    "7. Use zh_tw as the language for all communications."
-    "8. If there is any information missing, use Agent(s) to get."
-    "9. today is date", datetime.now().strftime("%Y-%m-%d"),
-    "10. Please the format of the email",
+    "7. Use zh_tw as the language for all communications.",
+    "8. If there is any information missing, use Agent(s) to get.",
+    "9. today is date", datetime.now().strftime("%Y-%m-%d")
     ]
     )
 if __name__ == "__main__":
@@ -42,7 +40,7 @@ if __name__ == "__main__":
     if text_prompt:
         text_prompt = text_prompt
     else:
-        text_prompt = "使用繁體中文寄送午安問候信件給我"
+        text_prompt = "使用繁體中文寄送午安問候信件給f131521012@gmail.com"
 
     print(text_prompt)
     v2m_team = initv2m()

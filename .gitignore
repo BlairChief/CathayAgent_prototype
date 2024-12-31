@@ -4,5 +4,6 @@ pyproject.toml
 .python-version
 .venv
 .cathayenv
+.mp3
 cathayenv
 __pycache__

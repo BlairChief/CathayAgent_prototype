@@ -26,9 +26,7 @@ class EmailV2Tools(Toolkit):
         :return: "success" if the email was sent successfully, "error: [error message]" otherwise.
         """
 
-        target_email = receiver_email or os.getenv("RECEIVER_EMAIL")
-
-        if not target_email:
+        if not receiver_email:
             return "error: No receiver email provided"
         
         try:
@@ -48,10 +46,10 @@ class EmailV2Tools(Toolkit):
         msg = EmailMessage()
         msg["Subject"] = subject
         msg["From"] = f"{self.sender_name} <{self.sender_email}>"
-        msg["To"] = target_email
+        msg["To"] = receiver_email
         msg.set_content(body)
 
-        logger.info(f"Sending Email to {target_email}")
+        logger.info(f"Sending Email to {receiver_email}")
         try:
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.login(self.sender_email, self.sender_passkey)
