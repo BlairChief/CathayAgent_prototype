@@ -1,6 +1,5 @@
 from typing import List
 from phi.agent import Agent
-from textwrap import dedent
 from datetime import datetime
 
 class PresentationAgent:
