@@ -4,3 +4,8 @@ pyproject.toml
 .python-version
 .venv
 __pycache__
+
+data/
+.coverage
+
+test_*.py
